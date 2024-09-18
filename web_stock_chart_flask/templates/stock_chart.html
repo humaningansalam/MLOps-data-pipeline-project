@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ticker}} Stock Chart</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center my-4">{{ticker}} Stock Chart</h1>
+        <form method="POST" action="/chart/{{ticker}}" class="mb-4">
+            <div class="form-row">
+                <div class="col">
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" value="{{date}}" class="form-control">
+                </div>
+                <div class="col">
+                    <label for="interval">Choose interval:</label>
+                    <select id="interval" name="interval" class="form-control">
+                        <option value="5m">5 minutes</option>
+                        <option value="30m">30 minutes</option>
+                        <option value="1h">1 hour</option>
+                    </select>
+                </div>
+                <div class="col align-self-end">
+                    <input type="submit" value="Update Chart" class="btn btn-primary">
+                </div>
+            </div>
+        </form>
+        <div>
+            {{chart | safe}}
+        </div>
+        <a href="/" class="btn btn-secondary mt-4">Go Back to Dashboard</a>  <!-- 대시보드로 돌아가는 버튼을 추가합니다. -->
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
